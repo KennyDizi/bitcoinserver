@@ -213,6 +213,18 @@ server.on('published', function(packet, client) {
     }
 });
 
+server.on('subscribed', function(topic, client) {
+  console.log("client", client.id, "subscribed topic", topic, "\n")
+});
+
+server.on('unsubscribed', function(topic, client) {
+  console.log("client", client.id, "unsubscribed topic", topic, "\n")
+});
+
+server.on('clientDisconnected', function(client) {
+  console.log("client", client.id, "clientDisconnected", "\n")
+});
+
 server.on('ready', setup);
 
 function setup() {
